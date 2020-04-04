@@ -1,0 +1,8 @@
+commit-msg:
+  scripts:
+    "msg-check":
+      runner: bash
+pre-commit:
+  scripts:
+    "branch-name-check":
+      runner:

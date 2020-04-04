@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+MSG=`head -n1 $1`
+PATTERN="^(feat|fix|docs|style|refactor|perf|test|ci|chore|revert): .{25,}"
+if ! [[ "${MSG}" =~ $PATTERN ]]; then
+  cat <<EOF
+"$MSG" doesn't adhere to standard commit style. Please use one of the following to start your commit
+- feat: <at least 25 characters>
+- fix: <at least 25 characters>
+- docs: <at least 25 characters>
+- style: <at least 25 characters>
+- refactor: <at least 25 characters>
+- perf: <at least 25 characters>
+- test: <at least 25 characters>
+- ci: <at least 25 characters>
+- chore: <at least 25 characters>
+- revert: <at least 25 characters>
+EOF
+  exit 1
+fi
